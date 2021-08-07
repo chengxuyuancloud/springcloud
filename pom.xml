@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>SpringCloud-common</module>
+        <module>SpringCloud-Eureka</module>
+        <module>SpringCloud-Eureka-6001</module>
+        <module>SpringCloud-Eureka-6002</module>
+        <module>SpringCloud-Eureka-provider</module>
+        <module>SpringCloud-Eureka-provider-8001</module>
+        <module>SpringCloud-Eureka-provider-8002</module>
+        <module>SpringCloud-Feign-consumer</module>
+        <module>SpringCloud-Hystrix-dashboard-9001</module>
+        <module>SpringCloud-Hystrix-dashboard-provider-8001</module>
+        <module>SpringCloud-Hystrix-Feign-consumer</module>
+        <module>SpringCloud-hystrix-provider-8001</module>
+        <module>SpringCloud-Rest-consumer</module>
+        <module>SpringCloud-Rest-provider</module>
+        <module>SpringCloud-Ribbon-consumer</module>
+        <module>SpringCloud-Zuul-gateway-7001</module>
+        <module>SpringCloud-Zuul-gateway-filter-7001</module>
+        <module>SpringCloud-Config-server-5001</module>
+        <module>SpringCloud-Config-Client-8080</module>
+        <module>SpringCloud-Eureka-Config-6001</module>
+        <module>SpringCloud-Config-provider-8001</module>
+        <module>SpringCloud-Bus-provider-8001</module>
+    </modules>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.12.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <groupId>net.northking</groupId>
+    <artifactId>SpringCloud</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <junit.version>4.12</junit.version>
+        <!-- spring cloud 采用 Hoxton.SR12 版本 -->
+        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+    </properties>
+
+    <!--依赖声明-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <!--maven不支持多继承，使用import来依赖管理配置-->
+                <scope>import</scope>
+            </dependency>
+            <!--导入 mybatis 启动器-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>2.1.4</version>
+            </dependency>
+            <!--druid数据源-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.25</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>2.3.12.RELEASE</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
